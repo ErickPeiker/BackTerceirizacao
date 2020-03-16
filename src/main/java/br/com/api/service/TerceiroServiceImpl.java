@@ -23,13 +23,13 @@ public class TerceiroServiceImpl implements TerceiroService {
 
     @Override
     public Terceiro save(TerceiroDTO terceiroDTO) {
-        return terceiroRepository.save(terceiroConverter.criarTerceiroDoDto(terceiroDTO));
+        return terceiroRepository.save(terceiroConverter.criarDoDto(terceiroDTO));
     }
 
     @Override
     public Terceiro edit(TerceiroDTO terceiroDTO) {
         Terceiro terceiro = getTerceiro(terceiroDTO.getId()).get();
-        terceiroConverter.atualizarTerceiroComDto(terceiro, terceiroDTO);
+        terceiroConverter.atualizarComDto(terceiro, terceiroDTO);
         return terceiroRepository.save(terceiro);
     }
 

@@ -5,9 +5,9 @@ import br.com.api.model.Empresa;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EmpresaConverter {
+public class EmpresaConverter implements ConverterPadrao<Empresa, EmpresaDTO> {
 
-    public Empresa criarEmpresaDoDto(EmpresaDTO empresaDTO) {
+    public Empresa criarDoDto(EmpresaDTO empresaDTO) {
         return Empresa.builder()
                 .id(empresaDTO.getId())
                 .administrador(empresaDTO.getAdministrador())
@@ -20,7 +20,7 @@ public class EmpresaConverter {
                 .build();
     }
 
-    public void atualizarEmprezaComDto(Empresa empresa, EmpresaDTO empresaDTO) {
+    public void atualizarComDto(Empresa empresa, EmpresaDTO empresaDTO) {
         empresa.setAdministrador(empresaDTO.getAdministrador());
         empresa.setCnpj(empresaDTO.getCnpj());
         empresa.setNomeFantasia(empresaDTO.getNomeFantasia());

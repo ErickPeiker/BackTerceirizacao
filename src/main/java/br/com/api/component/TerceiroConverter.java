@@ -5,9 +5,9 @@ import br.com.api.model.Terceiro;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TerceiroConverter {
+public class TerceiroConverter implements ConverterPadrao<Terceiro, TerceiroDTO> {
 
-    public Terceiro criarTerceiroDoDto(TerceiroDTO terceiroDTO) {
+    public Terceiro criarDoDto(TerceiroDTO terceiroDTO) {
         return Terceiro.builder()
                 .nome(terceiroDTO.getNome())
                 .cpf(terceiroDTO.getCpf())
@@ -24,7 +24,7 @@ public class TerceiroConverter {
                 .build();
     }
 
-    public void atualizarTerceiroComDto(Terceiro terceiro, TerceiroDTO terceiroDTO) {
+    public void atualizarComDto(Terceiro terceiro, TerceiroDTO terceiroDTO) {
         terceiro.setNome(terceiroDTO.getNome());
         terceiro.setCpf(terceiroDTO.getCpf());
         terceiro.setRg(terceiroDTO.getRg());
@@ -38,5 +38,4 @@ public class TerceiroConverter {
         terceiro.setTelefones(terceiroDTO.getTelefones());
         terceiro.setDisponibilidade(terceiroDTO.getDisponibilidade());
     }
-
 }

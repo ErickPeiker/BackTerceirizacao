@@ -14,7 +14,7 @@ import java.util.Set;
 @RestController
 @CrossOrigin(origins = "http://localhost")
 @RequestMapping("/empresa")
-public class EmpresaController {
+public class EmpresaController implements ControllerPadrao<Empresa, EmpresaDTO, EmpresaFilterDTO> {
 
     @Autowired
     EmpresaService empresaService;
@@ -30,12 +30,12 @@ public class EmpresaController {
     }
 
     @GetMapping
-    public ResponseEntity<Set<Empresa>> getEmpresas(EmpresaFilterDTO empresaFilterDTO) {
+    public ResponseEntity<Set<Empresa>> getAll(EmpresaFilterDTO empresaFilterDTO) {
         return ResponseEntity.ok(empresaService.getEmpresas(empresaFilterDTO));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Empresa> getEmpresa(@PathVariable("id") Long id) {
+    public ResponseEntity<Empresa> getId(@PathVariable("id") Long id) {
         Optional<Empresa> empresa = empresaService.getEmpresa(id);
         return ResponseEntity.of(empresa);
     }

@@ -23,13 +23,13 @@ public class EmpresaServiceImpl implements EmpresaService {
 
     @Override
     public Empresa save(EmpresaDTO empresaDTO) {
-        return empresaRepository.save(empresaConverter.criarEmpresaDoDto(empresaDTO));
+        return empresaRepository.save(empresaConverter.criarDoDto(empresaDTO));
     }
 
     @Override
     public Empresa edit(EmpresaDTO empresaDTO) {
         Empresa empresa = getEmpresa(empresaDTO.getId()).get();
-        empresaConverter.atualizarEmprezaComDto(empresa, empresaDTO);
+        empresaConverter.atualizarComDto(empresa, empresaDTO);
         return empresaRepository.save(empresa);
     }
 

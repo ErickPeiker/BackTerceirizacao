@@ -14,7 +14,7 @@ import java.util.Set;
 @RestController
 @CrossOrigin(origins = "http://localhost")
 @RequestMapping("/terceiro")
-public class TerceiroController {
+public class TerceiroController implements ControllerPadrao<Terceiro, TerceiroDTO, TerceiroFilterDTO>{
 
     @Autowired
     private TerceiroService terceiroService;
@@ -30,14 +30,14 @@ public class TerceiroController {
     }
 
     @GetMapping
-    public ResponseEntity<Set<Terceiro>> getTerceiros(TerceiroFilterDTO terceiroFilterDTO) {
+    public ResponseEntity<Set<Terceiro>> getAll(TerceiroFilterDTO terceiroFilterDTO) {
         return ResponseEntity.ok(terceiroService.getTerceiros(terceiroFilterDTO));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Terceiro> getTerceiro(@PathVariable("id") Long id) {
-        Optional<Terceiro> terceiros = terceiroService.getTerceiro(id);
-        return ResponseEntity.of(terceiros);
+    public ResponseEntity<Terceiro> getId(@PathVariable("id") Long id) {
+        Optional<Terceiro> terceiro = terceiroService.getTerceiro(id);
+        return ResponseEntity.of(terceiro);
     }
 
 }
