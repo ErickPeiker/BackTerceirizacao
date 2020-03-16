@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Foto {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "foto_generator")
-    @SequenceGenerator(name="foto_generator", sequenceName = "foto_seq")
+    @SequenceGenerator(name="foto_generator", sequenceName = "zseq_foto")
     private Long id;
     @Enumerated(EnumType.STRING)
     private FotoType tipo;

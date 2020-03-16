@@ -15,7 +15,7 @@ import java.util.Set;
 public class Terceiro {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terceiro_generator")
-    @SequenceGenerator(name="terceiro_generator", sequenceName = "terceiro_seq")
+    @SequenceGenerator(name="terceiro_generator", sequenceName = "zseq_terceiro")
     private Long id;
     private String nome;
     private String cpf;

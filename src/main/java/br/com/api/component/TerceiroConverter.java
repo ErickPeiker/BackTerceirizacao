@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TerceiroConverter {
 
-    public Terceiro convertDtoToTerceiro(TerceiroDTO terceiroDTO) {
+    public Terceiro criarTerceiroDoDto(TerceiroDTO terceiroDTO) {
         return Terceiro.builder()
                 .nome(terceiroDTO.getNome())
                 .cpf(terceiroDTO.getCpf())
@@ -22,6 +22,21 @@ public class TerceiroConverter {
                 .telefones(terceiroDTO.getTelefones())
                 .disponibilidade(terceiroDTO.getDisponibilidade())
                 .build();
+    }
+
+    public void atualizarTerceiroComDto(Terceiro terceiro, TerceiroDTO terceiroDTO) {
+        terceiro.setNome(terceiroDTO.getNome());
+        terceiro.setCpf(terceiroDTO.getCpf());
+        terceiro.setRg(terceiroDTO.getRg());
+        terceiro.setDrt(terceiroDTO.getDrt());
+        terceiro.setCnv(terceiroDTO.getCnv());
+        terceiro.setCursoSeguranca(terceiroDTO.getCursoSeguranca());
+        terceiro.setGrandesEventos(terceiroDTO.getGrandesEventos());
+        terceiro.setEnderecos(terceiroDTO.getEnderecos());
+        terceiro.setOcupacoes(terceiroDTO.getOcupacoes());
+        terceiro.setFotos(terceiroDTO.getFotos());
+        terceiro.setTelefones(terceiroDTO.getTelefones());
+        terceiro.setDisponibilidade(terceiroDTO.getDisponibilidade());
     }
 
 }

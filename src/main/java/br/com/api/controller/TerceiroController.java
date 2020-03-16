@@ -12,6 +12,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = "http://localhost")
 @RequestMapping("/terceiro")
 public class TerceiroController {
 
@@ -23,19 +24,18 @@ public class TerceiroController {
         return ResponseEntity.ok(terceiroService.save(terceiroDTO));
     }
 
-    /*@PutMapping
-    public ResponseEntity<Terceiro> edit(TerceiroDTO terceiroDTO) {
+    @PutMapping
+    public ResponseEntity<Terceiro> edit(@RequestBody TerceiroDTO terceiroDTO) {
         return ResponseEntity.ok(terceiroService.edit(terceiroDTO));
     }
-    */
 
     @GetMapping
     public ResponseEntity<Set<Terceiro>> getTerceiros(TerceiroFilterDTO terceiroFilterDTO) {
         return ResponseEntity.ok(terceiroService.getTerceiros(terceiroFilterDTO));
     }
 
-    @GetMapping
-    public ResponseEntity<Terceiro> getTerceiros(Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Terceiro> getTerceiro(@PathVariable("id") Long id) {
         Optional<Terceiro> terceiros = terceiroService.getTerceiro(id);
         return ResponseEntity.of(terceiros);
     }

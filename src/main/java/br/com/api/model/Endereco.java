@@ -13,8 +13,9 @@ import javax.persistence.*;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco_generator")
-    @SequenceGenerator(name="endereco_generator", sequenceName = "endereco_seq")
+    @SequenceGenerator(name="endereco_generator", sequenceName = "zseq_endereco")
     private Long id;
+    private String descricao;
     private String cep;
     private String estado;
     private String cidade;

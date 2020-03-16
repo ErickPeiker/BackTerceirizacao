@@ -6,8 +6,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum OcupacaoType {
-    VIGILANTE("Vigilante"),
-    COZINHEIRO("Cozinheiro"),
+    SERVICOS_GERAIS("Serviços Gerais"),
+    SEGURANCA("Segurança"),
+    SEGURANCA_GE("Segurança GE"),
+    CONTROLADOR_ESTACIONAMENTO("Controlador Estacionamento"),
+    COZINHA("Cozinha"),
     RECEPCIONISTA("Recepcionista"),
     BILHETAGEM("Bilhetagem"),
     ;
